@@ -1,0 +1,20 @@
+@font-face {
+    font-family: blog-font;
+    src: url(../src/fonts/Brawler-Regular.ttf);
+}
+
+@font-face {
+    font-family: blog-font-herm;
+    src: url(../src/fonts/HermeneusOne-Regular.ttf);
+}
+
+p{
+    font-family: blog-font;
+}
+
+.main{
+    margin-top: 80px;
+}
+body{
+    background-color: #f5f5f5;
+}
