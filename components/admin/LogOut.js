@@ -9,7 +9,7 @@ const LogOut = () => {
         router.push('/admin/login')
     }
     return(
-        <Button variant="info" onClick={handleLogOut}>Logout</Button>
+        <Button style={{marginLeft:"10px"}} variant="danger" onClick={handleLogOut}>Logout</Button>
     )
 }
 

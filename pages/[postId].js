@@ -10,11 +10,11 @@ const BlogPost = ({post, comments, posts}) => (
 );
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const resPost = await fetch(`http://localhost:3000/api/post/${query.postId}`);
+  const resPost = await fetch(`${process.env.url}api/post/${query.postId}`);
   const jsonPost = await resPost.json();
-  const resComments = await fetch(`http://localhost:3000/api/comments/${query.postId}`);
+  const resComments = await fetch(`${process.env.url}api/comments/${query.postId}`);
   const jsonComments = await resComments.json();
-  const resPosts = await fetch(`http://localhost:3000/api/posts`);
+  const resPosts = await fetch(`${process.env.url}api/posts`);
   const jsonPosts = await resPosts.json();
   return { post: jsonPost.post, comments: jsonComments.comments, posts: jsonPosts.posts };
 };

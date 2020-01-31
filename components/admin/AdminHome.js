@@ -5,6 +5,7 @@ import PostList from './PostList';
 import WithAuth from './WithAuth';
 import LogOut from './LogOut';
 import '../../styles/adminHomeStyle.scss';
+import CreateUser from './CreateUser';
 
 class AdminHome extends React.Component {
     state = { showModal: false };
@@ -20,7 +21,10 @@ class AdminHome extends React.Component {
                 <Card.Header>
                     <div style={{display:"flex", justifyContent:"space-between"}}>
                         <h4><b>Admin Menu</b></h4>
-                        <LogOut />
+                        <span>
+                            <CreateUser />
+                            <LogOut />
+                        </span>
                     </div>
                 </Card.Header>
                 <Card.Body>

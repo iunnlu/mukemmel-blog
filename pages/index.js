@@ -22,9 +22,9 @@ const Home = ({ posts, comments }) => {
 
 Home.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const resPosts = await fetch(`https://ilhanunlu.herokuapp.com/api/posts`);
+  const resPosts = await fetch(`${process.env.url}api/posts`);
   const jsonPosts = await resPosts.json();
-  const resComments = await fetch(`https://ilhanunlu.herokuapp.com/api/comments`);
+  const resComments = await fetch(`${process.env.url}api/comments`);
   const jsonComments = await resComments.json();
   return { posts: jsonPosts.posts, comments: jsonComments.comments };
 };

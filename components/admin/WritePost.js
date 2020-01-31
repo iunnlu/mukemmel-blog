@@ -11,7 +11,7 @@ class WritePost extends React.Component {
     submitPost = async event => {
         var today = new Date();
         var todayDate = today.getDate() + ' ' + this.monthNames[today.getMonth()] + ' ' + today.getFullYear();
-        axios.post("http://localhost:3000/api/writepost", {
+        axios.post(`${process.env.url}api/writepost`, {
             title: event.target.title.value,
             slug: event.target.slug.value,
             details: event.target.details.value,

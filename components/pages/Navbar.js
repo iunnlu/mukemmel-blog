@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/navbarStyle.css'
+import '../../styles/navbarStyle.scss'
 import '../../styles/lines.css';
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
                             <div class="line"></div>
                             <div class="line"></div>
                         </div>
-                        <a className="custom-title" href="">İlhan Ünlü
+                        <a className="custom-title" href="https://ilhanunlu.herokuapp.com/">İlhan Ünlü
                             <div className="t1">
                                 <div className="in"></div>
                             </div>
@@ -26,9 +26,9 @@ const Navbar = () => {
                     </div>
                     <div className="p15">
                         <ul className="social-network social-circle">
-                            <li><a href="#" className="icoFacebook" title="Facebook"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#" className="icoGoogle" title="İnstagram"><i className="fa fa-instagram"></i></a></li>
-                            <li><a href="#" className="icoLinkedin" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://www.facebook.com/ilhan.unlu" className="icoFacebook" title="Facebook"><i className="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/i.unnlu" className="icoGoogle" title="İnstagram"><i className="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/ilhan-unlu" className="icoLinkedin" title="Linkedin"><i className="fa fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                 </div>

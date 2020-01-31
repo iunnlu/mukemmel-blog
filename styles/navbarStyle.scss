@@ -148,6 +148,15 @@ div.p15-text {
   width: 600px;
   color: #f4f4f4;
 }
+@media (max-width: 767.98px) {
+  .custom-title{
+    font-size: 50px;
+  }
+  div.p15-text{
+    font-size: 25px;
+    margin-left: -120px;
+  }
+ }
 .custom-title:hover{
   color: #f4f4f4;
 }

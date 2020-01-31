@@ -8,7 +8,7 @@ const PostList = ({ posts }) => {
     const [indexDelete, setIndexDelete] = useState(null);
     const deletePostHandler = () => {
         const deleteSlug = posts[indexDelete].slug;
-        axios.post("http://localhost:3000/api/post/delete", {
+        axios.post(`${process.env.url}api/post/delete`, {
             slug: deleteSlug
         })
         setShow(false)

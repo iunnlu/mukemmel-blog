@@ -64,16 +64,16 @@ class Post extends React.Component {
                     <div className="custom-card-footer">
                         <button style={{backgroundColor:"transparent", border:"none"}} disabled={this.state.disableLike} ref={this.likeRef} onClick={this.clickLike} class="custom-card-like fa fa-lg fa-heart"> {this.state.likeState} Like</button>
                         <span>
-                            <FacebookShareButton style={{ margin: "0px 2px" }} url={`http://localhost:3000/${this.props.post.slug}`}>
+                            <FacebookShareButton style={{ margin: "0px 2px" }} url={`${process.env.url}${this.props.post.slug}`}>
                                 <FacebookIcon size={32} round={true} />
                             </FacebookShareButton>
-                            <TwitterShareButton style={{ margin: "0px 2px" }} url={`http://localhost:3000/${this.props.post.slug}`}>
+                            <TwitterShareButton style={{ margin: "0px 2px" }} url={`${process.env.url}${this.props.post.slug}`}>
                                 <TwitterIcon size={32} round={true} />
                             </TwitterShareButton>
-                            <LinkedinShareButton style={{ margin: "0px 2px" }} url={`http://localhost:3000/${this.props.post.slug}`}>
+                            <LinkedinShareButton style={{ margin: "0px 2px" }} url={`${process.env.url}${this.props.post.slug}`}>
                                 <LinkedinIcon size={32} round={true} />
                             </LinkedinShareButton>
-                            <WhatsappShareButton style={{ margin: "0px 2px" }} url={`http://localhost:3000/${this.props.post.slug}`}>
+                            <WhatsappShareButton style={{ margin: "0px 2px" }} url={`${process.env.url}${this.props.post.slug}`}>
                                 <WhatsappIcon size={32} round={true} />
                             </WhatsappShareButton>
                         </span>

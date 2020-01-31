@@ -17,7 +17,7 @@ class Home extends React.Component {
 
 Home.getInitialProps = async ({ req, query }) => {
     // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-    const resPosts = await fetch(`http://localhost:3000/api/posts`);
+    const resPosts = await fetch(`${process.env.url}api/posts`);
     const jsonPosts = await resPosts.json();
     return { posts: jsonPosts.posts };
 };

@@ -9,7 +9,7 @@ class WriteComment extends React.Component {
     writeSubmit = async (event) => {
         const currentDate = new Date();
         if (this.state.name != "" && this.state.surname != "" && this.state.comment != "") {
-            axios.post("http://localhost:3000/api/writecomment", {
+            axios.post(`${process.env.url}api/writecomment`, {
                 postSlug: this.props.post.slug,
                 name: this.state.name,
                 surname: this.state.surname,
