@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className="nav-row">
                 <div className="col" style={{padding:"0px"}}>
                     <section className="p15">
-                        <div style={{margin:"0px"}} class="lines">
+                        <div className="lines">
                             <div class="line"></div>
                             <div class="line"></div>
                         </div>

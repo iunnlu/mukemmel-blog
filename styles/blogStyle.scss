@@ -68,6 +68,8 @@
                 padding: 0px 20px;
         }
         .about-image-col{
+                position: relative;
+                left: -20px;
                 margin-bottom: 10px;
         }
         .about-image{
@@ -78,5 +80,8 @@
                 display: flex;
                 justify-content: left;
                 align-items: center;
+        }
+        #about-id{
+                font-size: 20px;
         }
 }
