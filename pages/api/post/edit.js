@@ -8,7 +8,9 @@ export default async (req, res) => {
                 details: req.body.details,
                 slug: req.body.slug,
                 image: req.body.image,
-                tags: req.body.tags
+                tags: req.body.tags,
+                date: req.body.date,
+                like: req.body.like
             })
         });
     }

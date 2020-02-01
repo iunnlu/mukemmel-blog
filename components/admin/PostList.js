@@ -21,12 +21,16 @@ const PostList = ({ posts }) => {
     }
     const editPostHandler = () => {
         const editSlug = posts[indexDelete].slug;
+        const editLike = posts[indexDelete].like;
+        const editDate = posts[indexDelete].date;
         axios.post(`${process.env.url}api/post/edit`, {
             title: title,
             details: details,
             image: image,
             tags: tags,
-            slug: editSlug
+            slug: editSlug,
+            date: editDate,
+            like: editLike
         })
         setShowEdit(false)
         router.push("/admin/home")
@@ -135,7 +139,7 @@ const PostList = ({ posts }) => {
                         <Button variant="secondary" onClick={editHandleClose}>
                             Close
                         </Button>
-                        <Button variant="secondary" onClick={editPostHandler}>
+                        <Button variant="info" onClick={editPostHandler}>
                             Edit
                         </Button>
                     </Modal.Footer>
