@@ -8,7 +8,7 @@ class Footer extends React.Component {
             <div className="custom-footer" style={{ height: "100px" }}>
                 <Container>
                     <Row>
-                        <Col style={{ color: "white", height: "100px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <Col className="custom-footer-col">
                             <p className="footer-text" style={{ margin: "0px", fontWeight: "bold" }}>Copyright © 2020 | Powered by İlhan Ünlü</p>
                             <ul className="social-network social-circle" style={{ margin: "0px" }}>
                                 <li><a href="https://www.facebook.com/ilhan.unlu" className="icoFacebook" title="Facebook"><i className="fa fa-facebook"></i></a></li>

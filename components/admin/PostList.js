@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { ListGroup, Button, Modal } from 'react-bootstrap';
+import { ListGroup, Button, Modal, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-import router from 'next/router'
+import router from 'next/router';
 
 const PostList = ({ posts }) => {
     const [showDelete, setShowDelete] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const [indexDelete, setIndexDelete] = useState(null);
+    const [title, setTitle] = useState(null);
+    const [details, setDetails] = useState(null);
+    const [image, setImage] = useState(null);
+    const [tags, setTags] = useState(null);
     const deletePostHandler = () => {
         const deleteSlug = posts[indexDelete].slug;
         axios.post(`${process.env.url}api/post/delete`, {
@@ -16,11 +20,15 @@ const PostList = ({ posts }) => {
         router.push("/admin/home")
     }
     const editPostHandler = () => {
-        const deleteSlug = posts[indexDelete].slug;
-        axios.post(`${process.env.url}api/post/delete`, {
-            slug: deleteSlug
+        const editSlug = posts[indexDelete].slug;
+        axios.post(`${process.env.url}api/post/edit`, {
+            title: title,
+            details: details,
+            image: image,
+            tags: tags,
+            slug: editSlug
         })
-        setShowDelete(false)
+        setShowEdit(false)
         router.push("/admin/home")
     }
     const handleClose = () => {
@@ -34,8 +42,24 @@ const PostList = ({ posts }) => {
         setShowEdit(false);
     }
     const editHandleOpen = (index) => {
-        setIndexDelete(index);
+        setTitle(posts[index].title);
+        setDetails(posts[index].details);
+        setImage(posts[index].image);
+        setTags(posts[index].tags);
+        setIndexDelete(index)
         setShowEdit(true);
+    }
+    const changeTitle = (event) => {
+        setTitle(event.target.value)
+    }
+    const changeDetails = (event) => {
+        setDetails(event.target.value)
+    }
+    const changeImage = (event) => {
+        setImage(event.target.value)
+    }
+    const changeTags = (event) => {
+        setTags(event.target.value)
     }
     const RenderPosts = () => {
         return posts.map((post, index) => {
@@ -44,8 +68,8 @@ const PostList = ({ posts }) => {
                     <ListGroup.Item style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <h6 style={{ color: "gray" }}>{post.title}</h6>
                         <span style={{ textAlign: "right" }}>
-                            <Button style={{marginRight: "10px"}} onClick={() => handleOpen(index)} variant="info">Edit</Button>
-                            <Button onClick={() => editHandleOpen(index)} variant="danger">Delete</Button>
+                            <Button style={{ marginRight: "10px" }} onClick={() => editHandleOpen(index)} variant="info">Edit</Button>
+                            <Button onClick={() => handleOpen(index)} variant="danger">Delete</Button>
                         </span>
                     </ListGroup.Item>
                     <Modal aria-labelledby="contained-modal-title-vcenter" show={showDelete} onHide={handleClose}>
@@ -62,20 +86,6 @@ const PostList = ({ posts }) => {
                             </Button>
                         </Modal.Footer>
                     </Modal>
-                    <Modal aria-labelledby="contained-modal-title-vcenter" show={showEdit} onHide={editHandleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Delete Post</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Are you sure delete this post?</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={editHandleClose}>
-                                Close
-                            </Button>
-                            <Button value={index} variant="primary" onClick={() => editPostHandler()}>
-                                Edit
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
                 </React.Fragment>
             )
         })
@@ -83,6 +93,53 @@ const PostList = ({ posts }) => {
     return (
         <ListGroup variant="flush">
             {RenderPosts()}
+                <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" show={showEdit} onHide={editHandleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete Post</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Row>
+                            <Col className="col-1">
+                                <label><h5>Title</h5></label>
+                            </Col>
+                            <Col className="col-11">
+                                <input value={title} onChange={changeTitle} style={{ width: "100%", marginBottom: "10px" }} type="text" id="title" name="title"></input>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="col-1">
+                                <label><h5>Details </h5></label>
+                            </Col>
+                            <Col className="col-11">
+                                <textarea value={details} onChange={changeDetails} style={{ whiteSpace: "pre-line", width: "100%", height: "400px", marginBottom: "10px" }} type="text" id="details" name="details"></textarea>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="col-1">
+                                <label><h5>Image</h5></label>
+                            </Col>
+                            <Col className="col-11">
+                                <input value={image} onChange={changeImage} style={{ width: "100%", marginBottom: "10px" }} type="text" name="image"></input>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="col-1">
+                                <label><h5>Tags</h5></label>
+                            </Col>
+                            <Col className="col-11">
+                                <input value={tags} onChange={changeTags} style={{ width: "100%", marginBottom: "10px" }} type="text" name="tags"></input>
+                            </Col>
+                        </Row>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={editHandleClose}>
+                            Close
+                        </Button>
+                        <Button variant="secondary" onClick={editPostHandler}>
+                            Edit
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
         </ListGroup>
     )
 }

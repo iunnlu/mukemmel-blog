@@ -1,15 +1,26 @@
 .custom-footer{
     background-color: #201f1f;
+    .custom-footer-col{
+        color: white;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
     @media (max-width: 575.98px) {
         .footer-text{
             font-size: 12px;
         }
         .social-circle li a{
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
+            font-size:15px;
         }
         .social-circle li i{
-            line-height: 10px;
+            line-height: 25px;
+        }
+        .custom-footer-col{
+            padding: 5px 5px;
         }
     }
 }

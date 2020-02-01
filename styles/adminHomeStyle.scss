@@ -1,4 +1,19 @@
 .admin-home{
-    margin: 50px 300px 50px 300px;
+    margin: 50px 270px 50px 270px;
     box-shadow: -2px 3px 19px -1px rgba(148,148,148,1);
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .admin-home{
+        margin: 50px 200px 50px 200px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .admin-home{
+        margin: 50px 100px 50px 100px;
+    }
+}
+@media (max-width: 575.98px) {
+    .admin-home{
+        margin: 50px 50px 50px 50px;
+    }
 }

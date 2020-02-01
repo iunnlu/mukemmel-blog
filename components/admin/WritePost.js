@@ -34,7 +34,6 @@ class WritePost extends React.Component {
                         <Modal.Title>Add new post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        
                             <Row>
                                 <Col className="col-1">
                                     <label><h5>Title</h5></label>
@@ -75,7 +74,6 @@ class WritePost extends React.Component {
                                     <input style={{ width: "100%", marginBottom: "10px" }} type="text" name="tags"></input>
                                 </Col>
                             </Row>
-                        
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={this.props.hideModalHandler}>
