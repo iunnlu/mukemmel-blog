@@ -32,7 +32,7 @@ const LastPosts = ({ posts }) => {
                 <ListGroup.Item style={{ backgroundColor: "#65919f", borderColor: "white", padding: "0px" }}>
                   <Row>
                     <Col className="col-3" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                      <Image style={{ width: "60px", height: "60px" }} src={item.image} roundedCircle />
+                      <Image style={{ width: "70px", height: "65px" }} src={item.image} roundedCircle />
                     </Col>
                     <Col className="col-9" style={{ padding: "0px" }}>
                       <Row>

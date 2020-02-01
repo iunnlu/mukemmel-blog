@@ -37,7 +37,7 @@ const Posts = ({ comments, posts }) => {
               <h5 className="card-title" style={{ marginTop: "15px" }}>
                 <a className="blog-title-link custom-posts-title"><b>{post.title}</b></a>
               </h5>
-              <p className="card-text custom-posts-text">
+              <p className="custom-posts-text">
                 <ReactMarkdown source={post.details} />
               </p>
               <p style={{ color: "gray", textAlign: "right", marginTop: "30px", fontWeight: "bold" }}>Read More...</p>
