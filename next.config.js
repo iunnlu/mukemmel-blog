@@ -18,7 +18,7 @@ module.exports = withFonts(
     withSass(
       withCSS({
         env: {
-          url: 'https://ilhanunlu.herokuapp.com/',
+          url: 'http://localhost:3000/',
         },
         webpack: config => {
           config.module.rules.push({

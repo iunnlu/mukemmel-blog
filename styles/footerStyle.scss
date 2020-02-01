@@ -1,13 +1,15 @@
 .custom-footer{
     background-color: #201f1f;
-}
-
-@media (max-width: 575.98px) {
-    .footer-text{
-        font-size: 12px;
-    }
-    #footer-icon{
-        width: 45px;
-        height: 45px;
+    @media (max-width: 575.98px) {
+        .footer-text{
+            font-size: 12px;
+        }
+        .social-circle li a{
+            width: 32px;
+            height: 32px;
+        }
+        .social-circle li i{
+            line-height: 10px;
+        }
     }
 }
