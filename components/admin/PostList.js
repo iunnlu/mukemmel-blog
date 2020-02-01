@@ -4,22 +4,38 @@ import axios from 'axios';
 import router from 'next/router'
 
 const PostList = ({ posts }) => {
-    const [show, setShow] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
+    const [showEdit, setShowEdit] = useState(false);
     const [indexDelete, setIndexDelete] = useState(null);
     const deletePostHandler = () => {
         const deleteSlug = posts[indexDelete].slug;
         axios.post(`${process.env.url}api/post/delete`, {
             slug: deleteSlug
         })
-        setShow(false)
+        setShowDelete(false)
+        router.push("/admin/home")
+    }
+    const editPostHandler = () => {
+        const deleteSlug = posts[indexDelete].slug;
+        axios.post(`${process.env.url}api/post/delete`, {
+            slug: deleteSlug
+        })
+        setShowDelete(false)
         router.push("/admin/home")
     }
     const handleClose = () => {
-        setShow(false);
+        setShowDelete(false);
     }
     const handleOpen = (index) => {
         setIndexDelete(index)
-        setShow(true);
+        setShowDelete(true);
+    }
+    const editHandleClose = () => {
+        setShowEdit(false);
+    }
+    const editHandleOpen = (index) => {
+        setIndexDelete(index);
+        setShowEdit(true);
     }
     const RenderPosts = () => {
         return posts.map((post, index) => {
@@ -27,9 +43,12 @@ const PostList = ({ posts }) => {
                 <React.Fragment>
                     <ListGroup.Item style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <h6 style={{ color: "gray" }}>{post.title}</h6>
-                        <span style={{ textAlign: "right" }}><Button onClick={() => handleOpen(index)} variant="danger">Delete</Button></span>
+                        <span style={{ textAlign: "right" }}>
+                            <Button style={{marginRight: "10px"}} onClick={() => handleOpen(index)} variant="info">Edit</Button>
+                            <Button onClick={() => editHandleOpen(index)} variant="danger">Delete</Button>
+                        </span>
                     </ListGroup.Item>
-                    <Modal aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleClose}>
+                    <Modal aria-labelledby="contained-modal-title-vcenter" show={showDelete} onHide={handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Delete Post</Modal.Title>
                         </Modal.Header>
@@ -40,6 +59,20 @@ const PostList = ({ posts }) => {
                             </Button>
                             <Button value={index} variant="primary" onClick={() => deletePostHandler()}>
                                 Delete
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                    <Modal aria-labelledby="contained-modal-title-vcenter" show={showEdit} onHide={editHandleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Delete Post</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Are you sure delete this post?</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={editHandleClose}>
+                                Close
+                            </Button>
+                            <Button value={index} variant="primary" onClick={() => editPostHandler()}>
+                                Edit
                             </Button>
                         </Modal.Footer>
                     </Modal>
