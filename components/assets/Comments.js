@@ -36,7 +36,7 @@ class Comments extends React.Component {
                                 <p className="comment-content-text">
                                     {item.comment}
                                 </p>
-                                <p style={{color:"gray", textAlign:"right", position:"relative", top:"-5px"}}><span>{this.calculateTime(item.date)}</span></p>
+                                <p className="comment-time" style={{color:"gray", textAlign:"right", position:"relative", top:"-5px"}}><span>{this.calculateTime(item.date)}</span></p>
                             </Col>
                         </Row>
                     </ListGroup.Item>
