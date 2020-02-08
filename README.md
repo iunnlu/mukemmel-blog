@@ -1,3 +1,10 @@
+Admin panel -> https://ilhanunlu.herokuapp.com/admin/login
+Kullanıcı adı: admin@gmail.com
+Şifre: admin123
+
+-Hazır tema kullanılmamıştır.
+-İstenenlerin çoğu gerçekleştirilmeye çalışılmıştır.
+
 Dünyanın en güzel blog'u, www.mukemmel.blog!
 
 Bu proje nasıl kodlandı izlemek ister misin? Youtube videosu: https://youtu.be/cHUh0FmPd3A
